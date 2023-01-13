@@ -12,13 +12,14 @@ ${json_file_path}       /home/akash/PycharmProjects/API_Automation_Using_Robot/V
 
 *** Test Cases ***
 TC1: Successful Login With Valid Credentials
-        create session      login       ${base_url}
+        create session      mysession       ${base_url}
 
             #Creating headers, body
         ${header}=      create dictionary       Content-Type=application/json
         ${body}=        create dictionary       email=salman@roadtocareer.net   password=1234
-        ${response}=    POST On Session     login     ${req_url}    json=${body}    headers=${header}
 
+            #Post request
+        ${response}=    POST On Session     mysession     ${req_url}    json=${body}    headers=${header}
         log to console      \nResponse: \n${response.content}
 
             #Extracting Values From Response
@@ -31,7 +32,7 @@ TC1: Successful Login With Valid Credentials
         set to dictionary   ${json_obj}     token=${token[0]}
         dump json to file   ${json_file_path}       ${json_obj}
 
-            #Validation
+            #Validations
         should be equal             ${message[0]}               Login successfully
         should be equal as strings  ${response.status_code}     200
 
