@@ -9,13 +9,14 @@ Library    String
 *** Variables ***
 ${base_url}             http://dmoney.roadtocareer.net
 ${req_url}              user/search?
+
 ${json_file_path}       /home/akash/PycharmProjects/API_Automation_Using_Robot/Variables.json
 ${secret_key}           ROADTOSDET
 
 *** Test Cases ***
 TC1: Get Customer 1 Details
     create session    mysession     ${base_url}
-        #Extracting the token from variables.json file
+        #Extracting the data from variables.json file
     ${json_obj}=    load json from file     ${json_file_path}
     ${token}=       get value from json     ${json_obj}     token
     ${id}=          get value from json     ${json_obj}     customer_1_id
