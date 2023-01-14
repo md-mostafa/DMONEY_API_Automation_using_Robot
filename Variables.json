@@ -1,11 +1,1 @@
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbG1hbkByb2FkdG9jYXJlZXIubmV0IiwicGFzc3dvcmQiOiIxMjM0IiwiaWF0IjoxNjczNzAxNzM3LCJleHAiOjE2NzM3MDM1Mzd9.bL7X-CqMkqZsWACiQ0OYqPXuxHoL5hAmKbVBze2fRYI",
-  "customer_1_id": 500,
-  "customer_1_phone": "01525514072",
-  "customer_2_id": 501,
-  "customer_2_phone": "01509777501",
-  "agent_id": 502,
-  "agent_phone": "01544976675",
-  "agent_balance": 805,
-  "customer_1_balance": 200
-}
+{"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbG1hbkByb2FkdG9jYXJlZXIubmV0IiwicGFzc3dvcmQiOiIxMjM0IiwiaWF0IjoxNjczNzAyNzI2LCJleHAiOjE2NzM3MDQ1MjZ9.bFjUCd1Zt45HtXIoP-zgP_M7jaq6qmjXSzSqGSaJNzM", "customer_1_id": 503, "customer_1_phone": "01509370010", "customer_2_id": 504, "customer_2_phone": "01518404665", "agent_id": 505, "agent_phone": "01593385533", "agent_balance": 805, "customer_1_balance": 200}
