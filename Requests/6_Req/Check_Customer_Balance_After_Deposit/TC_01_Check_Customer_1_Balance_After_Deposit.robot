@@ -13,32 +13,32 @@ ${req_url}              /transaction/balance
 ${json_file_path}       /home/akash/PycharmProjects/API_Automation_Using_Robot/Variables.json
 ${secret_key}           ROADTOSDET
 
-
 *** Test Cases ***
-TC: 1 Check Agent Balance
+TC_01: Check Customer 1 Balance After Deposit
         #Creating Session
     create session    mysession     ${base_url}
 
         #Extracting the data from variables.json file
-    ${json_obj}=        load json from file     ${json_file_path}
-    ${token}=           get value from json     ${json_obj}     token
-    ${agent_phone}=     get value from json     ${json_obj}     agent_phone
+    ${json_obj}=            load json from file     ${json_file_path}
+    ${token}=               get value from json     ${json_obj}     token
+    ${customer_1_phone}=    get value from json     ${json_obj}     $.customer_1_phone
 
         #Creating Header
     ${headers}=      create dictionary    Content-Type=application/json    Authorization=${token[0]}     X-AUTH-SECRET-KEY=${secret_key}
 
         #Get Request
-    ${response}=       get on session    mysession     ${req_url}/${agent_phone[0]}   headers=${headers}
-    log to console      ${response.json()}
+    ${response}=     get on session    mysession       ${req_url}/${customer_1_phone[0]}     headers=${headers}
+    log to console    ${response.json()}
 
         #Extracting data from response
-    ${message}=         get value from json     ${response.json()}      message
-    ${agent_balance}=   get value from json     ${response.json()}      balance
+    ${message}=                 get value from json     ${response.json()}      message
+    ${customer_1_balance}=      get value from json     ${response.json()}      balance
 
         #Savging data to the variable.json
-    set to dictionary   ${json_obj}     agent_balance=${agent_balance[0]}
+    set to dictionary   ${json_obj}     customer_1_balance=${customer_1_balance[0]}
     dump json to file   ${json_file_path}       ${json_obj}
 
+
         #Validations
-    should be equal as strings    ${response.status_code}   200
-    should be equal as strings    ${message[0]}             User balance
+    should be equal as strings    ${response.status_code}       200
+    should be equal as strings    ${message[0]}                 User balance

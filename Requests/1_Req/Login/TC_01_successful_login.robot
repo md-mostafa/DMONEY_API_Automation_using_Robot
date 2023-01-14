@@ -29,7 +29,7 @@ TC1: Successful Login With Valid Credentials
 
             #Saving the token to the json file
         ${json_obj}=        load json from file     ${json_file_path}
-        set to dictionary   ${json_obj}     token=${token[0]}
+        set to dictionary   ${json_obj}             token=${token[0]}
         dump json to file   ${json_file_path}       ${json_obj}
 
             #Validations
