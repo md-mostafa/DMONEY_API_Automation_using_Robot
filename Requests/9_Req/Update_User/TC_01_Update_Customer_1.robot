@@ -8,7 +8,7 @@ Library    String
 
 *** Variables ***
 ${base_url}             http://dmoney.roadtocareer.net
-${req_url}              /user/update
+${req_url}              user/update
 
 ${json_file_path}       /home/akash/PycharmProjects/API_Automation_Using_Robot/Variables.json
 ${secret_key}           ROADTOSDET
