@@ -24,8 +24,8 @@ TC1: Creation Of User 1
     ${phoneNumber}=     convert to string           015${randomNumber}
     ${nid}=             convert to string           613243${randomNumber}
     ${role}=            convert to string           Customer
-
     ${user_data}=       create dictionary   name=${randomName}    email=${randomEmail}    password=${password}    phone_number=${phoneNumber}     nid=${nid}    role=${role}
+
         # Converting the dictionary in json
     ${user_data_json}=  evaluate    json.dumps(${user_data},indent=3)
     log to console    ${user_data_json}
@@ -45,6 +45,7 @@ TC1: Creation Of User 1
     ${message}=             get value from json     ${response.json()}      message
     ${customer_1_id}=       get value from json     ${response.json()}      user.id
     ${customer_1_phone}=    get value from json     ${response.json()}      user.phone_number
+
         # Saving the data to the variables.json file
     set to dictionary       ${json_obj}             customer_1_id=${customer_1_id[0]}
     set to dictionary       ${json_obj}             customer_1_phone=${customer_1_phone[0]}
