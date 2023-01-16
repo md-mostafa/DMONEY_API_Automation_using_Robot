@@ -35,6 +35,10 @@ TC: 1 Successful Deposit To Agent
     ${response}=     post on session    mysession       ${req_url}      data=${user_data_json}      headers=${header}
     log to console    ${response.json()}
 
+        #Savging data to the variable.json
+    set to dictionary   ${json_obj}     agent_balance=${amount}
+    dump json to file   ${json_file_path}       ${json_obj}
+
         #Extracting data from response
     ${message}=     get value from json     ${response.json()}      message
 

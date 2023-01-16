@@ -23,6 +23,7 @@ TC: 1 Successful Depost To Customer 1
     ${token}=               get value from json     ${json_obj}     token
     ${agent_phone}=         get value from json     ${json_obj}     $.agent_phone
     ${customer_1_phone}=    get value from json     ${json_obj}     $.customer_1_phone
+    ${agent_balance}=       get value from json     ${json_obj}     $.agent_balance
 
         #Creating Request Body
     ${amount}=      convert to integer      200
@@ -40,8 +41,18 @@ TC: 1 Successful Depost To Customer 1
     log to console    ${response.json()}
 
         #Extracting data from response
-    ${message}=     get value from json     ${response.json()}      message
+    ${message}=         get value from json     ${response.json()}          message
+    ${currentBalance}=  get value from json     ${response.json()}          currentBalance
+    ${commission}=      get value from json     ${response.json()}          commission
+
+    ${expectedBalance}=     evaluate    ${agent_balance[0]}-${amount}+${commission[0]}
+    log to console    ExpectedBalance=${expectedBalance}
+
+        #Savging data to the variable.json
+    set to dictionary   ${json_obj}     agent_balance=${currentBalance[0]}
+    dump json to file   ${json_file_path}       ${json_obj}
 
         #Validation
-    should be equal as strings      ${message[0]}               Deposit successful
-    should be equal as strings      ${response.status_code}     201
+    should be equal as strings      ${message[0]}                   Deposit successful
+    should be equal as strings      ${response.status_code}         201
+    should be equal as integers     ${currentBalance[0]}            ${expectedBalance}
