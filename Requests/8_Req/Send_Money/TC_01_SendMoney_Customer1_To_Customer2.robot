@@ -24,7 +24,7 @@ TC_01: Send Money To Customer 2 From Customer 1
     ${token}=               get value from json     ${json_obj}     token
     ${customer_1_phone}=    get value from json     ${json_obj}     $.customer_1_phone
     ${customer_2_phone}=    get value from json     ${json_obj}     $.customer_2_phone
-
+    ${customer_1_balance}=  get value from json     ${json_obj}     $.customer_1_balance
         #Creating Request Body
     ${amount}=      convert to integer      50
     ${user_data}=   create dictionary       from_account=${customer_1_phone[0]}     to_account=${customer_2_phone[0]}    amount=${amount}
@@ -41,8 +41,16 @@ TC_01: Send Money To Customer 2 From Customer 1
     log to console      ${response.json()}
 
         #Extracting data from response
-    ${message}=                 get value from json     ${response.json()}      message
+    ${message}=     get value from json    ${response.json()}       message
+    ${balance}=     get value from json    ${response.json()}       currentBalance
+    ${fee}=         get value from json    ${response.json()}       fee
+    ${expectedBalance}=     evaluate    ${customer_1_balance[0]}-${fee[0]}-${amount}
 
         #Validations
-    should be equal as strings    ${response.status_code}       201
-    should be equal as strings    ${message[0]}                 Send money successful
+    should be equal as strings    ${response.status_code}           201
+    should be equal as strings    ${message[0]}                     Send money successful
+    should be equal as integers   ${balance[0]}                     ${expectedBalance}
+
+        # Saving the data to the variables.json file
+    set to dictionary       ${json_obj}            customer_1_balance=${balance[0]}
+    dump json to file       ${json_file_path}      ${json_obj}

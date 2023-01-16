@@ -40,7 +40,12 @@ TC_01: Withdrawing Money By Customer 1
     log to console      ${response.json()}
 
         #Extracting data from response
-    ${message}=                 get value from json     ${response.json()}      message
+    ${message}=       get value from json     ${response.json()}      message
+    ${balance}=       get value from json    ${response.json()}       currentBalance
+
+        # Saving the data to the variables.json file
+    set to dictionary       ${json_obj}             customer_1_balance=${balance[0]}
+    dump json to file       ${json_file_path}       ${json_obj}
 
         #Validations
     should be equal as strings    ${response.status_code}       201
