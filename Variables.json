@@ -1,11 +1,1 @@
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbG1hbkByb2FkdG9jYXJlZXIubmV0IiwicGFzc3dvcmQiOiIxMjM0IiwiaWF0IjoxNjczOTA0MDYyLCJleHAiOjE2NzM5MDU4NjJ9.AFi6RjQC3eotWzlNjnooBnhGWPLb68a3083fNiSK14o",
-  "customer_1_id": 771,
-  "customer_1_phone": "01777777777",
-  "customer_2_id": 772,
-  "customer_2_phone": "01556188091",
-  "agent_id": 773,
-  "agent_phone": "01503364686",
-  "agent_balance": 805,
-  "customer_1_balance": 40
-}
+{"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbG1hbkByb2FkdG9jYXJlZXIubmV0IiwicGFzc3dvcmQiOiIxMjM0IiwiaWF0IjoxNjczOTg5ODE0LCJleHAiOjE2NzM5OTE2MTR9.ccygnyxI0K7gaO7ahfTCRtW1J7C-F4JzhLe83FRVBR0", "customer_1_id": 836, "customer_1_phone": "01777777777", "customer_2_id": 837, "customer_2_phone": "01569639623", "agent_id": 838, "agent_phone": "01509369542", "agent_balance": 805, "customer_1_balance": 40}

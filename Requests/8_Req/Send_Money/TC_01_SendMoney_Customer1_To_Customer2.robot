@@ -49,6 +49,8 @@ TC_01: Send Money To Customer 2 From Customer 1
         #Validations
     should be equal as strings    ${response.status_code}           201
     should be equal as strings    ${message[0]}                     Send money successful
+
+        #Validating customer balance after send money to another customer
     should be equal as integers   ${balance[0]}                     ${expectedBalance}
 
         # Saving the data to the variables.json file

@@ -55,4 +55,6 @@ TC: 1 Successful Depost To Customer 1
         #Validation
     should be equal as strings      ${message[0]}                   Deposit successful
     should be equal as strings      ${response.status_code}         201
+
+        # Validating agent balance after depositing to customer
     should be equal as integers     ${currentBalance[0]}            ${expectedBalance}
