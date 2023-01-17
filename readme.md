@@ -33,7 +33,7 @@ This project uses RobotFramework to automate [DMoney API](http://dmoney.roadtoca
 
 ### Generated reports
 ![report](Screeenshots/reports_ss.jpg)
-![log](Screeenshots/log_ss.jpg)
+![log](Screeenshots/log_ss.png)
 
 ---
 ### Feedback
